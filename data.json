@@ -1,0 +1,54 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "Гранат",
+      "description": "Розовый",
+      "image": "product/Гранат_розовый.jpeg",
+      "category": 1,
+      "price": 200,
+      "date_created": null,
+      "date_updated": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "name": "Яблоко",
+      "description": "Зеленое",
+      "image": "product/Яблоко_Зеленое.jpeg",
+      "category": 1,
+      "price": 120,
+      "date_created": "2023-09-04",
+      "date_updated": "2023-09-04"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "name": "Банан",
+      "description": "Сладкий",
+      "image": "product/Банан_EKXJXrH.jpg",
+      "category": 1,
+      "price": 95,
+      "date_created": "2023-09-04",
+      "date_updated": "2023-09-04"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "name": "Помидор",
+      "description": "Сливовидный",
+      "image": "product/Помидор_Сливовидный.jpg",
+      "category": 2,
+      "price": 60,
+      "date_created": "2023-09-04",
+      "date_updated": "2023-09-04"
+    }
+  }
+]
