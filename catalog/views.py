@@ -7,7 +7,7 @@ from catalog.models import Product
 def home(request):
     products_list = Product.objects.all()
     context = {
-        'object_list': products_list[:4],
+        'object_list': products_list,
         'title': 'Главная'
     }
     return render(request, 'catalog/home.html', context)
@@ -34,3 +34,13 @@ def contacts(request):
     }
 
     return render(request, 'catalog/contacts.html', context)
+
+
+def product(request, pk):
+    products_item = Product.objects.get(pk=pk)
+    products_list = Product.objects.filter(id=pk)
+    context = {
+        'object_list': products_list,
+        'title': f'Продукт - {products_item}'
+    }
+    return render(request, 'catalog/product.html', context)
