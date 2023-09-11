@@ -1,0 +1,48 @@
+{% load static %}
+{% load my_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <meta name="robots" content="noindex,follow" />
+
+  </head>
+
+  <body>
+    <main class="container">
+
+      <!-- Left Column / Headphones Image -->
+      <div class="left-column">
+        <img class="card-img" src="{{ object.image|mymedia }}" alt="product">
+      </div>
+
+
+      <!-- Right Column -->
+      <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description">
+          <span>{{ object.category }}</span>
+          <h1>{{ object.name }}</h1>
+          <p>{{ object.description }}</p>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+          <span>{{ object.price }} руб.</span>
+          <a href="#" class="cart-btn">Купить</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="{% static 'js/script.js' %}" charset="utf-8"></script>
+  </body>
+</html>
