@@ -1,25 +1,37 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView, ListView, View, DetailView
 
 from catalog.models import Product
 
 
-# Create your views here.
-def home(request):
-    products_list = Product.objects.all()
-    context = {
-        'object_list': products_list,
-        'title': 'Главная'
+class HomeView(TemplateView):
+    template_name = 'catalog/home.html'
+    extra_context = {
+        'title': 'Главная',
     }
-    return render(request, 'catalog/home.html', context)
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['object_list'] = Product.objects.all()
+        return context_data
 
 
-def products(request):
-    products_list = Product.objects.all()
-    context = {
-        'object_list': products_list,
-        'title': 'Продукты'
+class ProductListView(ListView):
+    model = Product
+    extra_context = {
+        'title': 'Продукты',
     }
-    return render(request, 'catalog/products.html', context)
+
+
+class ProductDetailView(DetailView):
+    model = Product
+
+    def get_context_data(self, *args, **kwargs):
+        context_data = super().get_context_data(*args, **kwargs)
+        product_name = Product.objects.get(pk=self.kwargs.get('pk'))
+        context_data['title'] = f'Продукт - {product_name.name}'
+
+        return context_data
 
 
 def contacts(request):
@@ -34,13 +46,3 @@ def contacts(request):
     }
 
     return render(request, 'catalog/contacts.html', context)
-
-
-def product(request, pk):
-    products_item = Product.objects.get(pk=pk)
-    products_list = Product.objects.filter(id=pk)
-    context = {
-        'object_list': products_list,
-        'title': f'Продукт - {products_item.name}'
-    }
-    return render(request, 'catalog/product.html', context)
