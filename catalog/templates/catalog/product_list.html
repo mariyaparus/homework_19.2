@@ -1,13 +1,16 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
 <div class="pricing-header px-3 py-3 pb-md-4 mx-auto text-center">
-    <p class="lead">Описание продукта</p>
+    <p class="lead">Все наши статьи</p>
+</div>
+<div class="col-12 mb-5">
+    <a class="btn btn-outline-primary" href="#">Добавить продукт</a>
 </div>
 
 <div class="container">
     <div class="row text-center">
         {% for object in object_list %}
-        {% include 'catalog/includes/inc_prod.html' %}
+        {% include 'catalog/includes/inc_product.html' %}
         {% endfor %}
     </div>
 </div>
