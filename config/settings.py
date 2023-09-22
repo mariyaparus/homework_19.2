@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # 'django-dump-load-utf8',
 
     'catalog',
+    'blog',
 ]
 
 MIDDLEWARE = [
