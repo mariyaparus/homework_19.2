@@ -36,3 +36,11 @@ class VersionForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Version
         fields = '__all__'
+
+    # def clean_is_active(self):
+    #     cleaned_data = self.cleaned_data['is_active']
+    #     if cleaned_data:
+    #         raise forms.ValidationError(
+    #             f'У вас уже есть активная версия этого продукта.'
+    #             f'Если вы хотите сделать активной эту версию, снимите флажок с предыдущей.')
+    #     return cleaned_data
