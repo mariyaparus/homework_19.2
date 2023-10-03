@@ -11,7 +11,7 @@
                 <li><b>Дата изменения:</b> {{ object.updated_at}}</li>
 
             </ul>
-            <a href="#" class="btn btn-lg btn-block btn-outline-primary" style="width: 100%;">Купить</a>
+            <a href="{% url 'order:create' object.pk %}" class="btn btn-lg btn-block btn-outline-primary" style="width: 100%;">Купить</a>
         </div>
     </div>
 </div>
