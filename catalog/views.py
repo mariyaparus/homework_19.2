@@ -33,6 +33,8 @@ class ProductDetailView(DetailView):
         context_data = super().get_context_data(*args, **kwargs)
         product_name = Product.objects.get(pk=self.kwargs.get('pk'))
         context_data['title'] = f'Продукт - {product_name.name}'
+        active_version = Version.objects.filter(product=self.object, is_active=True).first()
+        context_data['version'] = active_version
 
         return context_data
 
